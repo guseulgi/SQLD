@@ -55,6 +55,8 @@ Insert, Update, Delete ...<br/>
 Grant, Revoke ... <br/>
 데이터베이스에 접근하고 객체들을 사용하도록 권한을 주고 회수하는 명령어
 
+
+
 ### TCL (Transaction Control Language) 트랜잭션 제어어
 Commit, Rollback ... <br/>
 논리적인 작업의 단위를 묶어서 DML에 의해 조작된 결과를 트랜잭션(작업단위)별로 제어하는 명령어
