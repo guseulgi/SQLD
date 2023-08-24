@@ -229,16 +229,38 @@ Commit Transaction / Rollback Transaction : 트랜잭션 종료
 벤더에서 제공하는 함수인 내장 함수와 사용자가 정의할 수 있는 함수로 나눌 수 있다.
 ### 내장 함수
 #### 단일행 함수
+1. Select, Where, Order by 절에서 사용 가능
+2. 각 행들에 대해 개별적으로 작용
+3. 각각의 행에 대한 조작 결과를 리턴
+4. 여러 인자를 입력해도 하나의 결과만 리턴
+5. 여러 개의 인수를 가질 수도 있다.
+6. 함수의 중첩이 가능
+
+#### 단일행 함수의 종류
 - 문자형 함수 : 문자를 입력하면 문자나 숫자를 반환
   - Lower, Upper, Substr, Length, Ltrim, Rtrim, Trim, Ascii
 - 숫자형 함수 : 숫자를 입력하면 숫자를 반환
   - Abs, Mod, Round, Trunc, Sign, Chr, Ceil, Floor, Exp, Log, Ln, Power, Cos, Tan
 - 날짜형 함수 : DATE 타입 값을 연산
   - Sysdate, Extract, To_number
+  - 날짜형 데이터 연산
+    - 날짜+숫자=날짜 : 숫자만큼 날을 날짜에 더한다.
+    - 날짜-숫자=날짜 : 숫자만큼 날을 날짜에 뺀다.
+    - 날짜1-날짜2=날짜수 : 다른 하나의 날짜에서 하나의 날짜를 빼면 일수가 나온다.
+    - 날짜+숫자/24=날짜 : 시간을 날짜에 더한다.
+    - 날짜+숫자/24/60=날짜 : 분을 날짜에 더한다.
 - 변환형 함수 : 문자, 숫자, 날짜형의 값 데이터 타입을 반환
   - To_Number, To_Char, To_date
 - Null 관련 함수 : Null을 처리하기 위한 함수
   - Nvl, NullIf, Coalesce
+  - Nvl : Null 값을 0으로 치환
+- 단일행 Case 표현의 종류
+  - Case When 조건 (Then 값 혹은 SQL문) (Else 값 혹은 SQL문) End
+  - Decode (조건1, 값1, 조건2, 값2, 디폴트값) : Oracle에서만 사용
+- Coalesce 함수
+  - Coalesce(표현식1, 표현식2, ...)
+  - Null 이 아닌 최초의 표현식을 나타낸다.
+  - 모든 표현식이 Null 이라면 Null을 나타낸다.
 
 #### 단일행 함수의 특징
 - Select, Where, Order by, Update Set 절에서 사용 가능
