@@ -135,8 +135,22 @@ Creat, Alter, Drop, Rename ... <br/>
 
 ### DCL (Data Control Language) 데이터 제어어
 Grant, Revoke ... <br/>
-데이터베이스에 접근하고 객체들을 사용하도록 권한을 주고 회수하는 명령어
+- 데이터베이스에 접근하고 객체들을 사용하도록 권한을 주고 회수하는 명령어
+- 데이터 보호와 보안을 위해 유저/권한 관리
 
+#### 오라클에서 제공하는 유저
+1. Scott : 테스트용 샘플 유저
+2. Sys : 백업 복수 등의 DB의 모든 관리 기능 수행 가능. DBA 권한을 부여 받은 유저, 최상위 관리자 계정
+3. System : 백업/복수 등 일부 기능을 제외한 모든 시스템 권한을 부여받은 DBA 계정, 오라클 설치 시 패스워드 설정하여 Sys 바로 밑
+
+#### Grant
+- 권한을 부여하는 DCL 명령어
+- Grant 권한명 To 권한을 뷰여할 유저명;
+  - Create Session : 유저가 로그인 할 수 있게 해줌
+  - Create Table : 테이블을 생성할 수 있게 해줌
+
+#### Revoke 
+- 부여한 권한을 회수하는 DCL 명령어
 
 ### TCL (Transaction Control Language) 트랜잭션 제어어
 Commit, Rollback ... <br/>
