@@ -157,6 +157,28 @@ Creat, Alter, Drop, Rename ... <br/>
 - Union all 을 사용한 SQL 과 같은 결과를 얻을 수 있다.
 - 괄호를 묶은 집합 별로 집계를 구할 수 있다.
 
+#### 윈도우 함수 = 분석함수
+- 행과 행간의 관계에서 다양한 연산 처리를 할 수 있는 함수
+- 중첩하여 호출할 수 없다
+
+#### 윈도우 함수의 종류
+1. 그룹 내 순위 함수 : Rank, Dense_rank, Row_number
+2. 집계 함수 : Sum, Max, Min, Avg, Count
+3. 그룹 내 행 순서 함수 : First_value, Last_value, Lag, Lead
+4. 그룹 내 비율 함수 : Cume_dist, Percnet_rank, Ntile, Ratio_to_Report
+
+#### 윈도우 함수 문법
+```
+Select 
+  윈도우 함수 (인자) over ([Partition by 컬럼] [Order by 절] [Windowing절])
+From 테이블명;
+```
+- 인자 : 함수에 따라 0~n개 인수 지정
+- Partition by 절 : 전체 집합을 기준에 의해 소그룹으로 나눌 수 있다.
+- Order by절 : 어떤 항목에 대해 순위를 지정할지 기술
+- Windowing 절 : 함수의 대상이 되는 행 기준을 범위를 강력하게 지정
+- Rows : 물리적인 결과 행의 수
+- Range : 논리적인 값에 의한 범위
 
 
 ### DCL (Data Control Language) 데이터 제어어
