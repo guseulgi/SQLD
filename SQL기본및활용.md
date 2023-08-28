@@ -132,6 +132,32 @@ Creat, Alter, Drop, Rename ... <br/>
 2. 변수가 Char면 Char 유형 타입의 경우를 적용
 3. 변수가 Varchar면 Varchar 유형을 적용
 
+#### 그룹함수
+- 소계/중계/합계/총합계 등을 구할 수 있음
+- 하나의 SQL로 테이블을 한번만 읽어서 빠르게 원하는 리포트 작성 가능
+
+#### 그룹함수의 종류
+1. Rollup
+- Subtotal(표현식 별 집계<->Grand Total)을 생성하기 위해 사용
+- 그룹핑 컬럼 수가 n일 때, n+1만큼의 level의 Subtotal(표현식 별 집계) 결과값이 생성된다.
+  ex. Rollup(부서, 업무, 성별) 인 경우
+  - 부서별, 업무별, 성별별 집계
+  - 부서별, 업무별 집계 - 모든 성별 포함
+  - 부서별 집계 - 모든 성별, 모든 업무 포함
+  - 전체 집계(Grand Total)
+- 계층 구조이기에 순서가 바뀌면 수행 결과도 바뀌게 되므로 순서에도 주의
+- Rollup(표현식1, 표헌식2, ...) 으로 Group by 뒤에 사용
+2. Cube
+- 다차원적인 소계를 계산
+- 결합 가능한 모든 값에 대해 다차원 집계를 생성
+- 그룹핑 칼럼의 수가 n일 때, 2의 n승 Subtotal 이 생성
+  ex. Cube(부서, 성별, 업무)인 경우 3개의 컬럼이므로 2의 3승인 8개의 결과가 나온다.
+- 시스템의 성능에 무리를 많이 준다.
+3. Grouping sets
+- Union all 을 사용한 SQL 과 같은 결과를 얻을 수 있다.
+- 괄호를 묶은 집합 별로 집계를 구할 수 있다.
+
+
 
 ### DCL (Data Control Language) 데이터 제어어
 Grant, Revoke ... <br/>
@@ -151,6 +177,20 @@ Grant, Revoke ... <br/>
 
 #### Revoke 
 - 부여한 권한을 회수하는 DCL 명령어
+
+#### Role
+1. Grant 를 일일이 지정하기 번거롭기 때문에
+2. Role을 생성하여 각종 권한을 부여한 후, Role 을 다른 Role이나 유저에게 부여
+3. Role에 포함된 권한들이 필요한 유저에게 Role만 부여하여 빠르고 정확하게 필요한 권한을 부여할 수 있다.
+4. Role을 생성하여 Role 에 권한을 부여할 때도 Grant문을 쓴다.
+
+#### Connect, Resource Role이 보유한 권한들
+1. Connect : Create Session
+2. Resource : Create Cluster
+3. Create Type
+4. Create Table
+5. Create Procedure
+6. Create Trigger
 
 ### TCL (Transaction Control Language) 트랜잭션 제어어
 Commit, Rollback ... <br/>
