@@ -332,16 +332,6 @@ Commit Transaction / Rollback Transaction : 트랜잭션 종료
 
 
 
-## Oracle VS SQL Server VS MySQL
-### Oracle
-- DDL 문장 수행 후 Auto Commit
-
-### SQL Server
-- DDL 문장 수행 후 사용자가 Commit 이 필요
-
-### MySQL
-- 
-
 ## 관계형 데이터베이스
 ### 테이블 생성 주의사항
 - 테이블명은 객체를 의미할 수 있는 적절한 이름, 단수형
