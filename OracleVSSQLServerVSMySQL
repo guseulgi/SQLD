@@ -1,0 +1,13 @@
+## Oracle VS SQL Server VS MySQL
+
+### Oracle
+- DDL 문장 수행 후 Auto Commit
+- Savepoint 세이브포인트명 ... Rollback To 세이브포인트명
+
+
+### SQL Server
+- DDL 문장 수행 후 사용자가 Commit 이 필요
+- Save Transaction 세이브포인트명 ... Rollback Transaction 세이브포인트명
+
+### MySQL
+- 
