@@ -2,6 +2,7 @@
 
 ### Oracle
 - DDL 문장 수행 후 Auto Commit
+- DML 수행 후 TCL 처리해줘야 한다.
 - Savepoint 세이브포인트명 ... Rollback To 세이브포인트명
 
 #### 오라클에서 제공하는 유저
@@ -12,6 +13,7 @@
 
 ### SQL Server
 - DDL 문장 수행 후 사용자가 Commit 이 필요
+- Auto Commit 모드이므로 DML 수행 후 TCL 을 처리할 필요가 없다.
 - Save Transaction 세이브포인트명 ... Rollback Transaction 세이브포인트명
 - 여러 개의 칼럼을 동시에 수정하는 구문은 지원하지 않는다
 - 괄호를 사용하지 않는다
@@ -19,4 +21,3 @@
 
 ### MySQL
 - 
-
