@@ -8,6 +8,9 @@
 ### SQL Server
 - DDL 문장 수행 후 사용자가 Commit 이 필요
 - Save Transaction 세이브포인트명 ... Rollback Transaction 세이브포인트명
+- 여러 개의 칼럼을 동시에 수정하는 구문은 지원하지 않는다
+- 괄호를 사용하지 않는다
+
 
 ### MySQL
 - 
