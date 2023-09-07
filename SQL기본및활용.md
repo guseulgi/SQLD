@@ -28,13 +28,6 @@
    - PL/SQL(오라클), T-SQL(SQL Server)
 
 
-## SQL DBMS
-1. Oracle
-
-2. SQL server
-   - 여러 개의 칼럼을 동시에 수정하는 구문은 지원하지 않는다
-   - 괄호를 사용하지 않는다
-
 
 ## 데이터 언어의 사용 목적에 따른 분류
 ### DDL (Data Definition Language) 데이터 정의어
