@@ -273,8 +273,6 @@ Grant, Revoke ... <br/>
 ### TCL (Transaction Control Language) 트랜잭션 제어어
 Commit, Rollback ... <br/>
 논리적인 작업의 단위를 묶어서 DML에 의해 조작된 결과를 트랜잭션(작업단위)별로 제어하는 명령어
-* 다만, SQL 서버는 기본적으로 Auto Commit 모드이므로 DML 수행 후 TCL 을 처리할 필요가 없다.
-* Oracle 예외
 
 #### Commit
 - DML 구문이 성공할 때,
