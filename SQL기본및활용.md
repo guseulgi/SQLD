@@ -148,19 +148,6 @@ Release       |  테이블 생성 시     | 사용했던 Storage는
     4. And
     5. Or
 
-#### 집계함수
-1. 여러 행들의 그룹이 모여서 그룹당 단 하나의 결과를 돌려주는 함수
-2. Group by 절은 행들을 소 그룹화 한다.
-3. Select, Having, Order by절에 사용할 수 있다.
-
-#### 집계함수의 종류
-1. Count(*) : Null 값을 포함한 행의 수 출력
-2. Count(표현식) : Null 이 아닌 표현식 행의 수 출력
-3. Sum() : Null 값 제외한 한계
-4. Max() : Null 값 제외한 최대값 <-> Min()
-5. Avg() : Null 값 제외한 평균
-6. Stddeb() :Null 값 제외한 표준편차
-7. Median() : Null 값 제외한 분산
 
 #### Group by 절
 1. 소그룹 별 기준 정한 후, Select절에 집계함수 사용
@@ -337,65 +324,6 @@ Commit Transaction / Rollback Transaction : 트랜잭션 종료
 `Null + 2 = Null, Null * 2 = Null, Null / 2 = Null ...`
 - 결과값을 Null 이 아닌 다른 값을 얻고자 할 땐 Nvl, IsNull 함수를 사용한다.
 - 널 값의 대상이 숫자인 경우 주로 0으로, 문자인 경우는 공백보단 x 같이 의미없는 문자로 바꾸는 경우가 많다.
-
-
-
-## 함수
-벤더에서 제공하는 함수인 내장 함수와 사용자가 정의할 수 있는 함수로 나눌 수 있다.
-### 내장 함수
-#### 단일행 함수
-1. Select, Where, Order by 절에서 사용 가능
-2. 각 행들에 대해 개별적으로 작용
-3. 각각의 행에 대한 조작 결과를 리턴
-4. 여러 인자를 입력해도 하나의 결과만 리턴
-5. 여러 개의 인수를 가질 수도 있다.
-6. 함수의 중첩이 가능
-
-#### 단일행 함수의 종류
-- 문자형 함수 : 문자를 입력하면 문자나 숫자를 반환
-  - Lower, Upper, Substr, Length, Ltrim, Rtrim, Trim, Ascii
-- 숫자형 함수 : 숫자를 입력하면 숫자를 반환
-  - Abs, Mod, Round, Trunc, Sign, Chr, Ceil, Floor, Exp, Log, Ln, Power, Cos, Tan
-- 날짜형 함수 : DATE 타입 값을 연산
-  - Sysdate, Extract, To_number
-  - 날짜형 데이터 연산
-    - 날짜+숫자=날짜 : 숫자만큼 날을 날짜에 더한다.
-    - 날짜-숫자=날짜 : 숫자만큼 날을 날짜에 뺀다.
-    - 날짜1-날짜2=날짜수 : 다른 하나의 날짜에서 하나의 날짜를 빼면 일수가 나온다.
-    - 날짜+숫자/24=날짜 : 시간을 날짜에 더한다.
-    - 날짜+숫자/24/60=날짜 : 분을 날짜에 더한다.
-- 변환형 함수 : 문자, 숫자, 날짜형의 값 데이터 타입을 반환
-  - To_Number, To_Char, To_date
-- Null 관련 함수 : Null을 처리하기 위한 함수
-  - Nvl, NullIf, Coalesce
-  - Nvl : Null 값을 0으로 치환
-- 단일행 Case 표현의 종류
-  - Case When 조건 (Then 값 혹은 SQL문) (Else 값 혹은 SQL문) End
-  - Decode (조건1, 값1, 조건2, 값2, 디폴트값) : Oracle에서만 사용
-- Coalesce 함수
-  - Coalesce(표현식1, 표현식2, ...)
-  - Null 이 아닌 최초의 표현식을 나타낸다.
-  - 모든 표현식이 Null 이라면 Null을 나타낸다.
-
-#### 단일행 함수의 특징
-- Select, Where, Order by, Update Set 절에서 사용 가능
-- 각 행에 대해 개별적으로 작용하여 데이터 값들을 조작하고 각각의 행에 대한 조작 결과를 반환한다.
-- 여러 인자를 입력해도 하나의 결과만 리턴한다.
-- 함수의 인자로 상수, 변수, 표현식이 사용 가능하고 하나의 인수 또는 여러 개의 인수를 가질 수도 있다.
-- 특별한 경우가 아니라면 함수의 인자로 함수를 사용한느 함수의 중첩이 가능
-
-#### 단일행 Null 관련 함수
-1. Nvl(표현식1, 표현식2), IsNull(표현식1, 표현식2) : 표현식1의 결과값이 Null 이면 표현식2의 값을 출력 - 다만 표현식1과 표현식2의 결과 데이터 타입이 같아야 한다.
-2. NullIf(표현식1, 표현식2) : 표현식1과 표현식2가 같으면 Null, 같지 않으면 표현식1을 리턴한다.
-3. Coalesce(표현식1, 표현식2, ...) : 임의의 개수 표현식에서 Null 이 아닌 최초의 표현식을 나타낸다. 모든 표현식이 Null 이면 Null 을 리턴한다.
-
-#### 다중행 함수
-- 집계 함수
-  - Count, Avg, Sum, Min, Max, Stddev, Variance
-- 그룹 함수
-  - Rollup, Cube, Grouping Sets
-- 윈도우 함수
-
 
 
 ## 서브쿼리
