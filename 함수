@@ -22,7 +22,10 @@
 
 #### 단일행 함수의 종류
 - 문자형 함수 : 문자를 입력하면 문자나 숫자를 반환
-  - Lower, Upper, Substr, Length, Ltrim, Rtrim, Trim, Ascii, CHA
+  - Lower, Upper, Substr, Length, Ltrim, Rtrim, Trim, 
+    - Ascii(문자/숫자) : 문자나 숫자를 아스키코드로 변경
+    - Chr(아스키번호) : 아스키코드를 숫자나 문자로 변경, ex) Chr(10)은 줄바꿈임
+    - Concat(문자열, 문자열2) : 문자열1, 문자열2를 이어줌
 - 숫자형 함수 : 숫자를 입력하면 숫자를 반환
   - Abs, Mod, Round, Trunc, Sign, Chr, Ceil, Floor, Exp, Log, Ln, Power, Cos, Tan
 - 날짜형 함수 : DATE 타입 값을 연산
