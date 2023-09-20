@@ -1,4 +1,4 @@
-## Oracle VS SQL Server VS MySQL
+## Oracle VS SQL Server
 
 ### Oracle
 - DDL 문장 수행 후 Auto Commit
