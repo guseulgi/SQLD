@@ -134,6 +134,11 @@ SELECT DEPTNO FROM DEPT;
 2. Union 연산 : 2개의 테이블을 하나로 합치는 연산, 단 2개 테이블의 칼럼 개수, 데이터 형식이 일치해야 함
   - 테이블을 1개로 합치면서 중복 데이터를 제거하고 정렬함
   - 단순하게 중복 데이터를 제거하지 않고 정렬되지 않는 합집합 연산으로 Union All 도 있음
+```
+Select *
+From A Full Outer Join B
+On (A.key = B.key);
+```
 
 
 ## 차집합
@@ -144,4 +149,37 @@ SELECT DEPTNO FROM DEPT
 MINUS
 SELECT DEPTNO FROM STUDENT;
 ```
+```
+# 차집합을 조인으로 나타낼 경우,
+Select *
+From A Left Join B
+On (A.key = B.key)
+Where B.key Is Null;
+```
 2. Except 연산(MS-SQL)
+
+
+# Join 절의 On절과 Where절의 차이
+- 본론부터 말하자면 Join 할 대상(범위)가 On/Where에 따라 달라진다.
+  - On : Join 하기 전, 필터링을 해준다. = On 조건으로 필터링된 레코드들 간 Join이 발생한다.
+  - Where : Join 을 한 다음 필터링 된다.
+```
+Select * From t Left Join t2
+On (t.a = t2.a)
+where t2.c = 7;
+# t2.c 인 데이터만 리턴 된다
+
+Select From t Left Join t2
+On (t.a = t2.a And t2.c = 7);
+# t2.c인 데이터와 아닌 데이터도 리턴 된다
+```
+
+# Join 절의 using 조건절
+- 두 개의 테이블이 Inner Join 으로 조인될 때 조인 하고자 하는 두 테이블의 칼럼명이 같을 경우, 조인 조건인 On절을 길게 적지 않고 간단하게 적을 수 있도록 한 조건절
+```
+Select * From A Inner Join B
+On (A.ID = B.ID);
+      =
+Select * From A Inner Join B
+Using(ID)
+```
