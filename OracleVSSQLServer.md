@@ -8,6 +8,7 @@
 - Outer Join 구문을 사용할 때 (+) 기호를 사용하여 처리한다. -> +가 있는 쪽 테이블이 Null 값을 포함하라는 의미
   - 예를 들어 Where A.col = B.col(+) 라면, A Left Outer Join B 인 것이다.
   - Where A.col(+) = B.col(+) 는 Full Outer Join
+- 행 기반 DB 이므로 데이터를 액세스할 때 행 전체 칼럼을 메모리에 로드 -> Select 절에 기술되지 않는 칼럼으로 정렬 가능함
 
 
 
