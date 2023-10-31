@@ -54,3 +54,20 @@ SQL Server 의 경우 오라클의 Shared Server 방식을 이용한다.
 8. Procedure 내부의 절차적 코드는 PL/SQL 엔진이 처리하고 일반적인 SQL문장은 SQL실행기가 처리한다.
 9. 동적 SQL, DDL 문장을 실행할 때 execute immediate 를 사용한다.
 
+
+#### 저장형 프로시저는 SQL 을 로직과 함께 데이터베이스 내 저장해 놓은 명령문의 집합
+#### 사용자 정의함수(저장형 함수)는 다른 SQL을 통해 호출되고 그 결과를 리턴하는 SQL의 보조적인 역할을 함
+
+#### Trigger
+- 특정 테이블에 Inset, Update, Delete 같은 DML문이 수행 됐을 때 DB에서 자동으로 동작하도록 작성된 프로그램
+- 데이터의 무결성과 일관성을 위해 사용자 정의 함수를 사용
+- Commit/Rollback 같은 TCL문은 사용 불가함 -> 다만 프로시저는 TCL문 사용이 가능
+- 데이터베이스에 로그인하는 작업도 정의 가능함
+
+```
+  프로시저          |          트리거
+-------------------------------------------
+Create Procedure  |    Create Trigger
+execute 로 실행    |        자동 실행
+    TCL OK        |        TCL X
+```
