@@ -50,6 +50,23 @@ FROM EMP_TBL A, RULE_TBL B
 WHERE A.ENAME LIKE B.RULE
 ```
 
+## Natural Join
+1. 반드시 두 테이블 간 동일한 이름, 타입을 가진 컬럼이 필요 -> 타입이 다르면 에러 발생
+2. 조인에 이용되는 컬럼은 명시하지 않아도 자동으로 조인에 사용
+3. 조인하는 테이블 간 동일 칼럼이 select절에 기술되어도 테이블명은 생략해야함
+4. using 조건절은 사용 불가
+```
+Select *
+From dept natural join location
+where city = 'LA'
+```
+
+## Hash Join
+1. 선행 테이블로 작은 테이블이 선정되어야 함
+2. 해시 함수를 사용하여 주소를 계산하므로 CPU사용량이 증가함
+   - 해시 함수는 유일한 값/암호화
+3. Non Equal 조인 X / Equal 조인 O
+
 
 ## Inner Join (내부 조인)
 - 두 테이블을 조인할 때 두 테이블에 모두 지정한 열의 데이터가 있어야 함
